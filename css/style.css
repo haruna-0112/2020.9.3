@@ -57,16 +57,13 @@ body {
 }
 
 .header-nav li{
-  margin-left:39px;
+  margin-left:35px;
 }
 
 .header-nav a{
   color:#432;
   font-weight:bold;
 
-}
-
-.header-nav a:hover{
 }
 
 .home-content{
@@ -79,20 +76,22 @@ body {
  font-family:'Philosopher',serif;
  font-weight:normal;
 }
-
-.firstview{
-  background:url(../img/cyril-saulnier-mpSMThAU4OY-unsplash.jpg);
-  background-size:cover;
-  background-position:center top;
-  background-repeat:no-repeat;
-  min-height:100vh;
-  background-blend-mode:hard-light;
-
+.bg-slider {
+	width: 100vw;
+	height: 100vh;
+	background-position:center center;
+	background-size: cover;
+	justify-content: center;
 }
 
+/*　ハンバーガーボタン　*/
+.globalMenuSp{
+  display:none;
+}
+/**/
 .news-content{
   width:80%;
-  text-align:center;
+  text-align:left;
   margin:20px auto;
 
 }
@@ -102,26 +101,34 @@ body {
 }
 
 .news_text{
-  border-bottom:1px solid;
+  border-bottom:1px solid #d7cebb;
 }
 
 .concept{
   margin-bottom:10%;
 }
 .concept-title{
-  text-align:center;
-  font-size:40px;
-  margin-bottom:15px;
+  margin-left:5%;
+  border-bottom:2px solid #d7cebb;
+  width:700px;
+  font-size:30px;
+  margin-bottom:30px;
 }
 .concept-content{
   position:relative;
 
 }
-.concept-img{
-  width:55%;
-  margin-left:5%;
-
+.slide {
+    display: none;
 }
+.slide img{
+  width:55%;
+}
+
+.active {/*.slide{...}よりも下に記述*/
+    display: block;
+}
+
 
 .concept-content_inner{
   width:40%;
@@ -129,8 +136,8 @@ body {
   padding:5% 10%;
   position:absolute;
   top:50%;
-  right:5%;
-  background:pink;
+  right:10%;
+  background:#d3c1af;
   
 }
 
@@ -140,30 +147,249 @@ body {
   justify-content:space-between;
 }
 .menu-container{
-  width:90%;
+  width:80%;
 }
 
 .menu-title{
   text-align:center;
   margin-bottom:20px;
   font-size:20px;
+  
 }
 .menu-content{
-  width:90%;
   display:flex;
+  flex-wrap:wrap;
 }
-.menu-item-img{
-  width:90%;
+.menu-item{
+  width:30%;
+  margin:10px 5px;
 }
+
 
 
 .menu-side-content{
-  width:50%;
-  background:pink;
+  width:20%;
   box-sizing:border-box;
-  padding:5px;
+  padding:20px 10px;
+  background:#f1e2be;
+  height:300px;
 }
 
+.side-title{
+  font-size:20px;
+  border-bottom:1px solid #d7cebb;
+
+}
+.side-list{
+ margin-left:10px;
+ margin-top:15px;
+}
+
+.side-item{
+  margin-bottom:20px;
+  font-size:20px;
+}
+
+.contact{
+  margin-bottom:3%;
+}
+.contact-title{
+  margin-left:5%;
+  margin-bottom:20px;
+  border-bottom:2px solid #d7cebb;
+  width:700px;
+  font-size:30px;
+
+}
+.contact-content{
+  display: flex;
+  justify-content:space-between;
+}
+.location-info{
+  width:30%;
+  
+}
+
+.location-map{
+   width:70%;
+ }
+ iframe{
+   width:100%;
+ }
+.contact-text{
+  font-size:18px;
+  margin-top:30px;
+}
+.contact-subtitle{
+  font-size:20px;
+}
+
+.footer{
+  height:70px;
+  background:#d7cebb;
+  text-align:center;
+  line-height:70px;
+}
+
+/******************************
+レスポンシブ対応
+******************************/
+@media screen and (max-width: 768px) {
+
+ .location-map,
+ .location-info{
+   width:100%;   
+  }
+
+  .home-content_title{
+    margin-top:200px;
+}
+
+.header-nav li{
+  margin-left:20px;
+}
+.header-nav a{
+  font-size:15px;
+}
+
+.top-header{
+  flex-direction:column;
+  align-items:center;
+}
+.concept-content_inner,
+.slide img{
+  width:100%;
+}
+.concept-title,
+.contact-title{
+  width:350px;
+}
+.concept-content_inner{
+position:static;
+}
+
+.menu{
+  flex-direction:column;
+}
+.menu-container,
+.menu-item,
+.menu-side-content{
+  width:100%;
+}
+.menu-side-content,
+.side-title{
+  text-align:center;
+}
+.contact-content{
+  flex-direction:column;
+}
+
+.location-info,
+.contact-subtitle{
+  text-align:center;
+
+}
+ /*　ハンバーガーボタン　*/
+ .header-nav{
+  display:none;
+}
+.hamburger {
+  display : block;
+  position: fixed;
+  z-index : 3;
+  right : 13px;
+  top   : 12px;
+  width : 42px;
+  height: 42px;
+  cursor: pointer;
+  text-align: center;
+}
+.hamburger span {
+  display : block;
+  position: absolute;
+  width   : 30px;
+  height  : 2px ;
+  left    : 6px;
+  background :#333333;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition   : 0.3s ease-in-out;
+  transition        : 0.3s ease-in-out;
+}
+.hamburger span:nth-child(1) {
+  top: 10px;
+}
+.hamburger span:nth-child(2) {
+  top: 20px;
+}
+.hamburger span:nth-child(3) {
+  top: 30px;
+}
+
+/* ナビ開いてる時のボタン */
+.hamburger.active span:nth-child(1) {
+  top : 16px;
+  left: 6px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform   : rotate(-45deg);
+  transform        : rotate(-45deg);
+}
+
+.hamburger.active span:nth-child(2),
+.hamburger.active span:nth-child(3) {
+  top: 16px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform   : rotate(45deg);
+  transform        : rotate(45deg);
+}
+
+nav.globalMenuSp {
+  display:block;
+  position: fixed;
+  z-index : 2;
+  top  : 0;
+  left : 0;
+  color: #000;
+  background: #fff;
+  text-align: center;
+  transform: translateX(100%);
+  transition: all 0.6s;
+  width: 100%;
+}
+
+nav.globalMenuSp ul {
+  background:#f1e2be; 
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+nav.globalMenuSp ul li {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+}
+nav.globalMenuSp ul li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+nav.globalMenuSp ul li:hover{
+  background :#ddd;
+}
+
+nav.globalMenuSp ul li a {
+  display: block;
+  color: #000;
+  padding: 1em 0;
+  text-decoration :none;
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+  transform: translateX(0%);
+}
+
+}
 
 
 
